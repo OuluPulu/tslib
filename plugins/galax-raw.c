@@ -90,8 +90,9 @@ static int ts_galax_check_fd (struct tslib_galax *i)
 	}
 
 	if (version < EV_VERSION) {
-		fprintf(stderr, "tslib: Selected device uses a different version of the event protocol than tslib was compiled for\n");
-		return -1;
+		fprintf(stderr, "tslib (galax): Selected device uses a different version of the event protocol than tslib was compiled for\n");
+        fprintf(stderr, "tslib will soldier on anyway.\n");
+//		return -1;
 	}
 
  	if ((ioctl(ts->fd, EVIOCGID, &infos) < 0)) {
